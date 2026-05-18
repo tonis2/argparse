@@ -214,7 +214,7 @@ fn ParseReturn? parse_short_name(
 	String arg,
 	String arg_sep="=",
 	Option option, 
-	usz arg_idx,
+	sz arg_idx,
 	bool use_default_help=true,
 )
 {
@@ -281,7 +281,7 @@ fn ParseReturn? parse_short_name(
 		// Split the arg and it's value
 		if (option.is_value_required)
 		{
-			usz sep_end = "-".len + option.short_name.len + arg_sep.len;
+			sz sep_end = "-".len + option.short_name.len + arg_sep.len;
 			
 			// Looking for separator would overflow or reach the end
 			if (sep_end >= arg.len)
@@ -330,7 +330,7 @@ fn ParseReturn? parse_long_name(
 	String arg,
 	String arg_sep="=",
 	Option option, 
-	usz arg_idx,
+	sz arg_idx,
 	bool use_default_help=true,
 )
 {		
@@ -387,7 +387,7 @@ fn ParseReturn? parse_long_name(
 	// Non-whitespace arg_sep, eg --ncpus=44
 	else if(arg_sep != " ")
 	{
-		usz sep_end = "--".len + option.long_name.len + arg_sep.len;
+		sz sep_end = "--".len + option.long_name.len + arg_sep.len;
 		
 		// Looking for separator would overflow or reach the end
 		if(sep_end >= arg.len)
